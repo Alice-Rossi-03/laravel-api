@@ -16,4 +16,20 @@ class ProjectController extends Controller
             'projects' => $projects
         ]);
     }
+
+    public function show($slug){
+        $project = Project::with('type','technologies')->where('slug',$slug)->first();
+
+        if ($project){
+            return response()->json([
+                'succes' => true,
+                'project' => $project
+            ]);
+        } else {
+            return response()->json([
+                'succes' => false,
+                'error' => 'The project does not exist'
+            ]);
+        }
+    }
 }
