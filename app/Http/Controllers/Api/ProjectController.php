@@ -22,12 +22,12 @@ class ProjectController extends Controller
 
         if ($project){
             return response()->json([
-                'succes' => true,
+                'success' => true,
                 'project' => $project
             ]);
         } else {
             return response()->json([
-                'succes' => false,
+                'success' => false,
                 'error' => 'The project does not exist'
             ]);
         }
